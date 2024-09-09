@@ -11,8 +11,13 @@ public class UserDaoJDBCImpl implements UserDao {
 
     private Connection conn = null;
 
-    public UserDaoJDBCImpl() throws SQLException {
-        this.conn = Util.getConnection();
+    public UserDaoJDBCImpl() {
+        try {
+            this.conn = Util.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void createUsersTable() {

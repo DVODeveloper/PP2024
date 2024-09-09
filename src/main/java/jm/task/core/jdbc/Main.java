@@ -9,7 +9,6 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) {
-        try {
             UserDao userDao = new UserDaoJDBCImpl();
             UserService userService = new UserServiceImpl(userDao);
 
@@ -24,9 +23,6 @@ public class Main {
 
             userService.cleanUsersTable();
             userService.dropUsersTable();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 }
 

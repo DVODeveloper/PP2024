@@ -1,4 +1,4 @@
-import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
+import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
@@ -9,15 +9,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserServiceTest {
-    private final UserDaoJDBCImpl userService = new UserDaoJDBCImpl();
+    private final UserService userService = new UserServiceImpl(new UserDaoHibernateImpl());
 
     private final String testName = "Ivan";
     private final String testLastName = "Ivanov";
-    private final byte testAge = 5;
+    private final byte testAge =  5;
 
     public UserServiceTest() throws SQLException {
     }
-
 
     @Test
     public void dropUsersTable() {
@@ -103,5 +102,4 @@ public class UserServiceTest {
             Assert.fail("При тестировании очистки таблицы пользователей произошло исключение\n" + e);
         }
     }
-
 }

@@ -1,6 +1,5 @@
 package jm.task.core.jdbc.model;
 
-import org.hibernate.annotations.Entity;
 
 import javax.persistence.*;
 
@@ -9,9 +8,16 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "lastName")
     private String lastName;
+
+    @Column(name = "age")
     private Byte age;
 
     public User() {

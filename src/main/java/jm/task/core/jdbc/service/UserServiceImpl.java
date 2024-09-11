@@ -8,9 +8,9 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService {
 
-    private final UserDaoHibernateImpl userDao;
+    private final UserDao userDao;
 
-    public UserServiceImpl(UserDaoHibernateImpl userDao) {
+    public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
     }
 
@@ -33,10 +33,11 @@ public class UserServiceImpl implements UserService {
 
     public List<User> getAllUsers() {
         System.out.println();
-        for (User user : userDao.getAllUsers()) {
+        List<User> users = userDao.getAllUsers();
+        for (User user : users) {
             System.out.println(user);
         }
-        return userDao.getAllUsers();
+        return users;
     }
 
     public void cleanUsersTable() {

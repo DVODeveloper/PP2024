@@ -33,7 +33,6 @@ public class Util {
                 props.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
                 props.put(Environment.SHOW_SQL, "true");
                 props.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
-                props.put(Environment.HBM2DDL_AUTO, "create-drop");
 
                 configuration.setProperties(props);
                 configuration.addAnnotatedClass(User.class);
